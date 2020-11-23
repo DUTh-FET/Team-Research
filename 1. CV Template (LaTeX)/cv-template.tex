@@ -1,0 +1,320 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LaTeX Template: Curriculum Vitae
+%
+% Source: http://www.howtotex.com/
+% Feel free to distribute this template, but please keep the
+% referal to HowToTeX.com.
+% Date: July 2011
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% If you're new to LaTeX, the wikibook is a great place to start:
+% http://en.wikibooks.org/wiki/LaTeX
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[paper=a4,fontsize=11pt]{scrartcl} % KOMA-article class
+							
+\usepackage[english]{babel}
+% \usepackage[utf8x]{inputenc}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage{amsmath,amsfonts,amsthm}     % Math packages
+\usepackage{graphicx}                    % Enable pdflatex
+\usepackage[svgnames]{xcolor}            % Colors by their 'svgnames'
+\usepackage{geometry}
+\textheight = 700px               % Saving trees ;-)
+\hoffset = -0.55in
+\voffset = -0.3in
+\textwidth = 7in
+\usepackage{url}
+\usepackage{wrapfig}
+\usepackage[style=authoryear,bibstyle=numeric,sorting=none,maxbibnames=99]{biblatex}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{   
+    urlcolor=black,
+}
+
+\frenchspacing              % Better looking spacings after periods
+\pagestyle{empty}           % No pagenumbers/headers/footers
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% Custom sectioning (sectsty package) %%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{sectsty}
+
+\sectionfont{%			            % Change font of \section command
+	\usefont{OT1}{phv}{b}{n}%		% bch-b-n: CharterBT-Bold font
+	\sectionrule{0pt}{0pt}{-5pt}{3pt}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% Macros %%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newlength{\spacebox}
+\settowidth{\spacebox}{8888888888}			% Box to align text
+\newcommand{\sepspace}{\vspace*{1em}}		% Vertical space macro
+
+
+%%%%%%%%%%%%%%% Name/Title/Affiliation Style %%%%%%%%%%%%%%%%
+\newcommand{\MyName}[1]{
+		\Huge \usefont{OT1}{phv}{b}{n}\hfill \textit{#1}
+		\par \normalsize \normalfont}
+\newcommand{\MyTitle}[1]{
+		\large \usefont{OT1}{phv}{m}{n}\hfill \textit{#1}
+		\par \normalsize \normalfont}
+\newcommand{\MyAffiliation}[1]{
+		\large \usefont{OT1}{phv}{m}{n}\hfill \textit{#1}
+		\par \normalsize \normalfont}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%% Define Command "NewPart" for non-numbered uppercase section titles %%%%%%%%%%%%%%%%
+\newcommand{\NewPart}[1]{\section*{\uppercase{#1}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%% Define Personal Details Entry Style %%%%%%%%%%%%%%%%
+\newcommand{\PersonalEntry}[2]{
+		\noindent\hangindent=2em\hangafter=0 % Indentation
+		\parbox{1.2\spacebox}{        % Box to align text
+		\textit{#1}}		       % Entry name (birth, address, etc.)
+		\hspace{1.5em} #2 \par}    % Entry value
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%% Define Skills Entry Style %%%%%%%%%%%%%%%%
+\newcommand{\SkillsEntry}[2]{      % Same as \PersonalEntry
+		\noindent\hangindent=2em\hangafter=0 % Indentation
+		\parbox{1.2\spacebox}{        % Box to align text
+		\textit{#1}}			   % Entry name (birth, address, etc.)
+		\hspace{1.5em} #2 \par}    % Entry value
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%% Define Education Entry Style %%%%%%%%%%%%%%%%		
+\newcommand{\EducationEntry}[4]{
+		\noindent \textbf{#1} \hfill      % Study
+		\colorbox{Black}{%
+			\parbox{6em}{%
+			\hfill\color{White}#2}} \par  % Duration
+		\noindent \textit{#3} \par        % School
+		\noindent\hangindent=2em\hangafter=0 \small #4 % Description
+		\normalsize \par}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%% Define Honours/Awards Entry Style %%%%%%%%%%%%%%%%	
+\newcommand{\AwardEntry}[3]{
+		\noindent \textbf{#1} \hfill      % Honour/Award Title
+		\colorbox{Black}{\color{White}#2} \par  % Date
+		\noindent \textit{#3} \par              % Description
+		\normalsize \par}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%% Define Work Experience Entry Style %%%%%%%%%%%%%%%%	
+\newcommand{\WorkEntry}[4]{				  % Same as \EducationEntry
+		\noindent \textbf{#1} \hfill      % Jobname
+		\colorbox{Black}{\color{White}#2} \par  % Duration
+		\noindent \textit{#3} \par              % Company
+		\noindent\hangindent=2em\hangafter=0 \small #4 % Description
+		\normalsize \par}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%% Define Miscellaneous Type Entry Style %%%%%%%%%%%%%%%%	
+\newcommand{\MiscEntry}[2]{
+		\noindent \textbf{#1} \par      % Title
+		\noindent \textit{#2} \par              % Description
+		\normalsize \par}
+\newcommand{\MiscEntryDate}[3]{
+		\noindent \textbf{#1} \hfill      % Title
+		\colorbox{Black}{\color{White}#2} \par  % Date
+		\noindent \textit{#3} \par              % Description
+		\normalsize \par}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% Begin Document %%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+
+% you can upload a photo and include it here...
+\begin{wrapfigure}{l}{0.5\textwidth}
+	\vspace*{-5em}
+		\includegraphics[width=0.25\textwidth]{Files/photo.png}
+\end{wrapfigure}
+
+\MyName{Name Surname}
+\MyTitle{Title Abbrev.}
+\MyAffiliation{University}
+\vspace*{3em}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% Personal Details %%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NewPart{Personal details}
+
+%%%%%%% Here you can add any kind of personal details in the following format:
+%%%%%%% \PersonalEntry{"entry name"}{"entry value"}
+\begin{itemize}[noitemsep]
+    \item[] \PersonalEntry{Birth}{Month DD, YYYY}
+    \item[] \PersonalEntry{Address}{Street and Number, City, Country}
+    \item[] \PersonalEntry{Phone}{XXXXXXXXXXXXX}
+    \item[] \PersonalEntry{Mail}{\url{XXX.XXX@XXX.XXX}}
+    %%%%%%% For a second e-mail account, please use:
+    \item[] \PersonalEntry{}{\url{XXX.XXX@XXX.XXX}}
+    \item[] \PersonalEntry{Webpage}{\url{XXX.XXXXXXXXXXX.XXX}}
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% Education Details %%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NewPart{Academic Qualifications}{}
+
+%%%%%%% Here you can add any kind of education entry. A recommended format is the following:
+%%%%%%% \EducationEntry{"Degree Title"}{"Dates"}{"University"\\"Department"}{"Any Comment"}
+\EducationEntry{Diploma of XXXXXXXXXXXXX}{\footnotesize MM.YYYY-MM.YYYY}{University, City, Country \\ Department of XXXXXXXXXXXXX}{Grade: XX.XX/10}
+\sepspace
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Honours/Awards %%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NewPart{Honours \& Awards}
+
+%%%%%%% Here you can add any kind of honour/award entry. A recommended format is the following:
+%%%%%%% \AwardEntry{"Award Title"}{"Date"}{"Award Description"}
+\begin{itemize}[leftmargin=*]
+    \item \AwardEntry{Title of $1^{st}$ Award}{\footnotesize MM.YYYY}{University of XXXXXXXXXXXXXX}
+    \item \AwardEntry{Title of $2^{nd}$ Award}{\footnotesize MM.YYYY}{University of XXXXXXXXXXXXXX}
+\end{itemize}
+\sepspace
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Working Experience %%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NewPart{Working Experience}
+
+%%%%%%% Here you can add any kind of working experience entry. A recommended format is the following:
+%%%%%%% \WorkEntry{"Job Title"}{"Dates"}{"Company"}{"Description"}
+\begin{itemize}[leftmargin=*]
+    \item \WorkEntry{Job Position}{\footnotesize MM.YYYY}{Company}{Details}
+    \item \WorkEntry{Other Job Position}{\footnotesize MM.YYYY}{Company}{Details}
+\end{itemize}
+\sepspace
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Publications %%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NewPart{Publications}
+
+%%%%%%% Here you can generate your publication list automatically by including them 
+%%%%%%% in the corresponding ".bib" file. This method generates the whole content of each ".bib".
+%%%%%%% Also, you can easily add new categories, like "Book Chapters" by
+%%%%%%% coping the content (5 lines) of the "\item".
+\begin{enumerate}[label=\textbf{\Alph*.},leftmargin=*]
+    \item   \textbf{Referred Journal Articles}
+            \begin{refsection}[Files/journals.bib]
+            \nocite{*}
+            \printbibliography[heading=none]
+            \end{refsection}
+    \item   \textbf{Conference Presentations}
+            \begin{refsection}[Files/conferences.bib]
+            \nocite{*}
+            \printbibliography[heading=none]
+            \end{refsection}
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Miscellaneous Entry %%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NewPart{Conference Attendance (Example for Misc. Category)}
+
+%%%%%%% Here you can add any kind of Miscellaneous entry. A recommended format is the following:
+%%%%%%% \MiscEntry{"Title"}{"Description"}
+%%%%%%% \MiscEntryDate{"Title"}{"Date"}{"Description"}
+\begin{itemize}[leftmargin=*]
+    \item \MiscEntry{XXXXXXX}{City, Country}
+    \item \MiscEntryDate{XXXXXXX}{\footnotesize MM.YYYY}{City, Country}
+\end{itemize}
+\sepspace
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% Skills Entry %%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NewPart{Skills}
+
+%%%%%%% Here you can add any kind of Skills entry. A recommended format is the following:
+%%%%%%% \SkillsEntry{"Category"}{"Items"}
+\begin{itemize}
+    \item[] \SkillsEntry{Languages}{XXXXXXX (Native Language)}
+    \item[] \SkillsEntry{}{XXXXXXX (Level C2)}
+    \item[] \SkillsEntry{Programming}{\textsc{C/C++},........}
+\end{itemize}
+\sepspace
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
