@@ -1,2 +1,2 @@
 ### Technical Material
-1. [Memristors](https://github.com/DUTh-FET/Team-Research/tree/master/3.%20Frequently%20Asked%20Questions/1.%20Memristors)
+1. [Quantum Computing on Memristor Crossbars](https://github.com/DUTh-FET/Team-Research/tree/master/4.%20Technical%20Material/1.%20Quantum%20Computing%20on%20Memristor%20Crossbars)
